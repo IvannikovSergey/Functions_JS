@@ -3,8 +3,10 @@
 
 const out1 = document.querySelector('.out-1');
 
-// функцию пишите здесь
-
+function getRandomInt() {
+    out1.textContent = Math.floor(Math.random() * (132 - 117 + 1)) + 117;
+} // функцию пишите здесь
+getRandomInt();
 
 // Task 2.
 
@@ -14,7 +16,10 @@ const out2 = document.querySelector('.out-2');
 let min = 888;
 let max = 900;
 
-// функцию пишите здесь
+function getRandomInt2() {
+    out2.textContent = Math.floor(Math.random() * (max - min + 1)) + min;
+}
+getRandomInt2(); // функцию пишите здесь
 
 
 // Task 3.
@@ -32,7 +37,8 @@ function f2021() {
 
 
 function t3() {
-    // тут вызываете hello и f2021
+    hello();
+    f2021(); // тут вызываете hello и f2021
 }
 
 document.querySelector('.b-3').addEventListener('click', t3);
@@ -49,6 +55,7 @@ function t4() {
     function hello() {
         out4.innerHTML = 'Hello ';
     }
+
     function f2021() {
         hello();
         out4.innerHTML += 2021;
@@ -56,9 +63,11 @@ function t4() {
     f2021();
 }
 
-// тут ваша функция t4_1
+function t4_1() {
+    t4();
+} // тут ваша функция t4_1
 
-// document.querySelector('.b-4').addEventListener('click', t4_1);
+document.querySelector('.b-4').addEventListener('click', t4_1);
 
 
 
@@ -75,8 +84,11 @@ function even() {
     out5.textContent = 'even';
 }
 
-function t5() {
 
+function t5() {
+    let a = document.querySelector('.i-5').value;
+    if (a % 2 === 0) even();
+    else odd();
 }
 
 document.querySelector('.b-5').addEventListener('click', t5);
@@ -91,13 +103,17 @@ function t6() {
     function odd() {
         out6.textContent = 'odd';
     }
+
     function even() {
         out6.textContent = 'even';
     }
-     min = 10000;
-     max = 10099;
-    // тут запускаете getRandomInt2
+    min = 10000;
+    max = 10099;
 
+    getRandomInt2(); // тут запускаете getRandomInt2
+
+    if (out2.innerHTML % 2 === 0) even();
+    else odd();
 }
 
 document.querySelector('.b-6').addEventListener('click', t6);
@@ -111,7 +127,9 @@ const out7 = document.querySelector('.out-7');
 let z7 = 91;
 
 function t7() {
-
+    if (z7 === 100) return false;
+    z7++;
+    out7.textContent = z7;
 }
 
 document.querySelector('.b-7').addEventListener('click', t7);
@@ -130,7 +148,9 @@ function showNumber() {
 }
 
 function t8() {
-
+    z8++;
+    if (z8 > 9) z8 = 0;
+    showNumber();
 }
 
 document.querySelector('.b-8').addEventListener('click', t8);
@@ -144,7 +164,7 @@ let z9 = 3;
 const s9 = document.querySelector('.s-9');
 
 function t9() {
-
+    s9.value = z9;
 }
 
 document.querySelector('.b-9').addEventListener('click', t9);
@@ -164,8 +184,12 @@ function showArr() {
 
 function t10() {
     ar10_res = []; // очищаем
-
+    for (let value of ar10) {
+        if (typeof value === 'number') {
+            ar10_res.push(value);
+        }
+    }
+    showArr();
 }
 
 document.querySelector('.b-10').addEventListener('click', t10);
-
