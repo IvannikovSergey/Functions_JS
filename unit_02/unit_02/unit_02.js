@@ -2,7 +2,8 @@
 // Напишите функцию t1, которая принимает два аргумента и выводит в .out-1 случайное целое число от первого аргумента(включительно) до второго(включительно). Функция запускается по кнопке .b-1. Обратите внимание на запуск функции. Чтобы передать аргументы, нам пришлось обернуть функцию в анонимную.
 
 function t1(min, max) {
-
+    let out = document.querySelector('.out-1');
+    out.textContent = Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 document.querySelector('.b-1').addEventListener('click', function () {
@@ -15,8 +16,10 @@ document.querySelector('.b-1').addEventListener('click', function () {
 
 //Напишите функцию t2, которая принимает три аргумента (число от, число до и блок, в который нужно вывести данные) и выводит в указанный блок случайное целое число от первого аргумента(включительно) до второго(включительно). Функция запускается по кнопке .b-2. Обратите внимание на запуск функции. Чтобы передать аргументы, нам пришлось обернуть функцию в анонимную.
 
-function t2(min, max, block) {
+const out2 = document.querySelector('.out-2');
 
+function t2(min, max, block) {
+    block.textContent = Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 document.querySelector('.b-2').addEventListener('click', function () {
@@ -29,8 +32,10 @@ document.querySelector('.b-2').addEventListener('click', function () {
 // Task 3.
 //Напишите функцию t3, которая принимает два аргумента (число от, число до ) и выводит в блок .out-3 случайное целое число от первого аргумента(включительно) до второго(включительно). Задайте значение по умолчанию для min число 0 для max число 100. Функция запускается по кнопке .b-3. Обратите внимание на запуск функции. Чтобы передать аргументы, нам пришлось обернуть функцию в анонимную.
 
-function t3(min, max) {
+function t3(min = 0, max = 100) {
 
+    let out = document.querySelector('.out-3');
+    out.textContent = Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 document.querySelector('.b-3').addEventListener('click', function () {
@@ -41,7 +46,9 @@ document.querySelector('.b-3').addEventListener('click', function () {
 // Напишите функцию t4, которая делит число a на b и результат выводит в out-4. Если b равно нулю, то в out-4 выводится аргумент c.
 
 function t4(a, b, c) {
-
+    let out = document.querySelector('.out-4');
+    out.textContent = a / b;
+    if (b == 0) out.textContent = c;
 }
 
 document.querySelector('.b-4').addEventListener('click', function () {
@@ -52,14 +59,15 @@ document.querySelector('.b-4').addEventListener('click', function () {
 // Task 5
 // Напишите функцию t5, которая делит число a на b и результат выводит в out-5. Если b равно нулю, то в out-5 выводится аргумент c, который по умолчанию равен нулю.
 
-function t5(a, b, c) {
-
+function t5(a, b, c = 0) {
+    let out = document.querySelector('.out-5');
+    out.textContent = a / b;
+    if (b == 0) out.textContent = c;
 }
 
 document.querySelector('.b-5').addEventListener('click', function () {
     t5(7, 12, false);
 })
-
 
 
 // Task 6
@@ -68,7 +76,7 @@ document.querySelector('.b-5').addEventListener('click', function () {
 const out6 = document.querySelector('.out-6');
 
 function t6(arr, block) {
-
+    block.textContent = arr;
 }
 
 document.querySelector('.b-6').addEventListener('click', function () {
@@ -82,8 +90,9 @@ document.querySelector('.b-6').addEventListener('click', function () {
 
 const out7 = document.querySelector('.out-7');
 
-function t7(arr, block) {
-
+function t7(arr = [], block) {
+    if (Array.isArray(arr)) block.textContent = arr.join(' ');
+    else block.textContent = false;
 }
 
 document.querySelector('.b-7').addEventListener('click', function () {
@@ -98,7 +107,7 @@ document.querySelector('.b-7').addEventListener('click', function () {
 const out8 = document.querySelector('.out-8');
 
 function t8(block, text) {
-
+    block.textContent = text.trim().toLowerCase();
 }
 
 document.querySelector('.b-8').addEventListener('click', function () {
@@ -114,8 +123,9 @@ document.querySelector('.b-8').addEventListener('click', function () {
 
 const out9 = document.querySelector('.out-9');
 
-function t9(text, block) {
-
+function t9(text = '', block) {
+    text = text.trim().toLowerCase();
+    if (block != null) block.textContent = text;
 }
 
 document.querySelector('.b-9').addEventListener('click', function () {
@@ -131,7 +141,7 @@ document.querySelector('.b-9').addEventListener('click', function () {
 const out10 = document.querySelector('.out-10');
 
 function t10() {
-
+    out10.textContent = arguments.length;
 }
 
 document.querySelector('.b-10').addEventListener('click', function () {
@@ -145,7 +155,7 @@ document.querySelector('.b-10').addEventListener('click', function () {
 const out11 = document.querySelector('.out-11');
 
 function t11() {
-
+    out11.textContent = Array.from(arguments).reduce((accum, item) => accum += item);
 }
 
 document.querySelector('.b-11').addEventListener('click', function () {
@@ -157,8 +167,8 @@ document.querySelector('.b-11').addEventListener('click', function () {
 
 const out12 = document.querySelector('.out-12');
 
-function t12() {
-
+function t12(...args) {
+    out12.textContent = args.reduce((accum, item) => accum += item);
 }
 
 document.querySelector('.b-12').addEventListener('click', function () {
@@ -172,7 +182,7 @@ document.querySelector('.b-12').addEventListener('click', function () {
 const out13 = document.querySelector('.out-13');
 
 function t13(arr, funcArg) {
-
+    out13.textContent = 
 }
 
 // функции для вывода уже заготовлены
