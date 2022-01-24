@@ -66,8 +66,8 @@ function indexOfEmul(arr, num) {
     return -1;
 }
 
-let result = indexOfEmul([22,33,44,55], 33);
-console.log(result);
+let return = indexOfEmul([22,33,44,55], 33);
+console.log(return);
 
 // Пользователь вводит количество лет
 document.querySelector('.b-4').addEventListener('click', function () {

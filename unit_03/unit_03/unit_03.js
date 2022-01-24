@@ -2,7 +2,7 @@
 // Напишите функцию t1, которая возвращает сумму переданных ей аргументов a и b.
 
 function t1(a, b) {
-
+    return a + b;
 }
 
 document.querySelector('.b-1').addEventListener('click', function () {
@@ -16,7 +16,7 @@ document.querySelector('.b-1').addEventListener('click', function () {
 //Напишите функцию t2, которая принимает 2 аргумента и возвращает больший из них. 
 
 function t2(a, b) {
-
+    return (a > b) ? a : b;
 }
 
 document.querySelector('.b-2').addEventListener('click', function () {
@@ -29,7 +29,8 @@ document.querySelector('.b-2').addEventListener('click', function () {
 // На странице есть checkbox .ch-3. Напишите функцию, которая возвращает его value если он выбран и false если не выбран. 
 
 function t3() {
-
+    let a = document.querySelector('.ch-3');
+    return (a.checked) ? a.value : false;
 }
 
 document.querySelector('.b-3').addEventListener('click', function () {
@@ -40,6 +41,10 @@ document.querySelector('.b-3').addEventListener('click', function () {
 // На странице есть radiobutton .r-4. Напишите функцию, которая возвращет value выбранного radiobutton. 
 
 function t4() {
+    let a = document.querySelectorAll('.r-4');
+    for (let i of a) {
+        if (i.checked) return i.value;
+    }
 
 }
 
@@ -52,7 +57,19 @@ document.querySelector('.b-4').addEventListener('click', function () {
 // Напишите функцию t5, которая получает из s51 число, из s52 знак и из s53 число и возвращает результат математической операции над этими числами с этим знаком. Т.е. возвращает или сумму чисел, или произведение, или разность или деление.
 
 function t5() {
-
+    let num1 = +document.querySelector('.s51').value;
+    let op = document.querySelector('.s52').value;
+    let num2 = +document.querySelector('.s53').value;
+    switch (op) {
+        case '-':
+            return num1 - num2;
+        case '+':
+            return num1 + num2;
+        case '*':
+            return num1 * num2;
+        case '/':
+            return num1 / num2;
+    }
 }
 
 document.querySelector('.b-5').addEventListener('click', function () {
@@ -319,8 +336,7 @@ document.querySelector('.b-24').addEventListener('click', function () {
 // Напишите функцию которая принимает массив как аргумент и проверяет что в нем одни числа. Возвращает true если это так и false в противном.
 
 
-function t25(arr) {
-}
+function t25(arr) {}
 
 document.querySelector('.b-25').addEventListener('click', function () {
     document.querySelector('.out-25').textContent = t25([4, 5, 6]);
@@ -330,8 +346,7 @@ document.querySelector('.b-25').addEventListener('click', function () {
 // Напишите функцию которая получает из input.i-26 имя пользователя и если это не пустая строка - то выводит его в out-26 в нижнем регистре. Если строка пустая - то выходит из функции.
 
 
-function t26() {
-}
+function t26() {}
 
 document.querySelector('.b-26').addEventListener('click', t26);
 
@@ -345,8 +360,7 @@ const obj27 = {
     m: 'w'
 }
 
-function t27(v) {
-}
+function t27(v) {}
 
 document.querySelector('.b-27').addEventListener('click', function () {
     let z = document.querySelector('.i-27').value;
@@ -357,8 +371,7 @@ document.querySelector('.b-27').addEventListener('click', function () {
 // Task 28
 // Напишите функцию которая принимает два аргумента - строку и подстроку и если подстрока есть в строке - возвращает true, если нет false.
 
-function t28(str, substr) {
-}
+function t28(str, substr) {}
 
 document.querySelector('.b-28').addEventListener('click', function () {
     document.querySelector('.out-28').textContent = t28('hello my world', 'or');
@@ -367,8 +380,7 @@ document.querySelector('.b-28').addEventListener('click', function () {
 // Task 29
 // Напишите функцию, которая получает в качестве аргументов строки и возвращает большую строку (прямым сравнением).
 
-function t29(str1, str2) {
-}
+function t29(str1, str2) {}
 
 document.querySelector('.b-29').addEventListener('click', function () {
     document.querySelector('.out-29').textContent = t29('hello', 'orBait');
@@ -383,11 +395,9 @@ function t31() {
     return true;
 }
 
-function t30() {
-}
+function t30() {}
 
 
 document.querySelector('.b-30').addEventListener('click', function () {
     document.querySelector('.out-30').textContent = t30();
 })
-
