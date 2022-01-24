@@ -182,7 +182,7 @@ document.querySelector('.b-12').addEventListener('click', function () {
 const out13 = document.querySelector('.out-13');
 
 function t13(arr, funcArg) {
-    out13.textContent = 
+    funcArg(arr);
 }
 
 // функции для вывода уже заготовлены
@@ -206,20 +206,20 @@ document.querySelector('.b-13').addEventListener('click', function () {
 const out14 = document.querySelector('.out-14');
 
 function t14(arr, funcArg, block) {
-
+    funcArg(arr, block);
 }
 
 // функции для вывода уже заготовлены
 function showArrSpace2(arr, block) {
-    // вывод в блок пишите как в предыдущем примере
+    block.innerHTML = arr.join(' '); // вывод в блок пишите как в предыдущем примере
 }
 
 function showArrUnderscore2(arr, block) {
-    // вывод в блок пишите как в предыдущем примере
+    block.innerHTML = arr.join('_'); // вывод в блок пишите как в предыдущем примере
 }
 
 document.querySelector('.b-14').addEventListener('click', function () {
-    t14([3, 4, 5], showArrSpace, out14);
+    t14([3, 4, 5], showArrSpace2, out14);
     // попробуйте также вместо showArrSpace2 поставить showArrUnderscore2
 })
 
@@ -230,7 +230,7 @@ document.querySelector('.b-14').addEventListener('click', function () {
 const out15 = document.querySelector('.out-15');
 
 function t15(num, even, odd) {
-
+    (num % 2 == 0) ? even(): odd();
 }
 
 function showOne() {
