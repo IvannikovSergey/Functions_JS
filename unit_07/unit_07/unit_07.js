@@ -1,3 +1,11 @@
+
+// Заменить события заданные через on… на события через addEventListener. ++++
+// Заменить(где это возможно) function declaration на function expression(с применением стрелочных функций).
+// Изучить имена функций, привести название функций в адекватный вид(т.е.имена можно менять).
+// Название переменных привести в адекватный вид.
+// Те функции, которые целесообразно сделать анонимными – выполнить анонимными.
+
+
 function sliderFunction() {
     const data = [
         "Начальник не всегда прав, но он всегда начальник.",
@@ -35,7 +43,8 @@ function sliderFunction() {
             div.append(text);
             outField.append(div);
         }
-        outField.onclick = showSlide;
+        // outField.onclick = showSlide;
+        outField.addEventListener('click', showSlide); //  второй onclick
         slideCollection = document.querySelectorAll('.slide');
     }
 
@@ -62,11 +71,11 @@ function sliderFunction() {
 
     function randomInteger(min, max) {
         // случайное число от min до (max+1)
-        let rand = min + Math.random() * (max + 1 - min);
-        return Math.floor(rand);
+        let randomInt = min + Math.random() * (max + 1 - min);
+        return Math.floor(randomInt);
     }
 
-    document.querySelector('.btn-start').onclick = startFunction;
+    document.querySelector('.btn-start').addEventListener('click', startFunction); // первый onclick
 }
 
 document.addEventListener("DOMContentLoaded", sliderFunction);
